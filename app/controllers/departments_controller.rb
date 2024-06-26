@@ -8,8 +8,8 @@ class DepartmentsController < ApplicationController
   def show
     the_id = params.fetch("path_id")
     @department = Department.where({:id => the_id })
-
-    render({ :template => "departments/show" })
+    @department = @department[0]
+    render({ :template => "/departments/show" })
   end
 
   def create
